@@ -1,0 +1,2011 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="generator" content="Bracket" />
+    <meta name="author" content="YunJin" />
+    <meta name="keywords" content="영화트레일러" />
+    <meta name="description" content="트레일러" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>lolDuk</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="icon" href="img/lol_logo.png" />
+    <link rel="stylesheet" href="css/aos.css" />
+    <link rel="stylesheet" href="css/magnific-popup.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-align: center;
+        font-family: "Noto Sans KR", sans-serif;
+        letter-spacing: 0.5px; /*자간*/
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      #wrapper {
+        width: 100%;
+        height: auto;
+        background: #0a1528; /*페이지 전체 배경색*/
+      }
+      #header {
+        width: 100%;
+        height: auto;
+      }
+      #header video {
+        width: 100%;
+        display: block;
+      }
+      #sidemenu {
+        width: 190px;
+        padding: 10px;
+        position: fixed;
+        top: 40px;
+        right: 0;
+        z-index: 999;
+        display: none;
+      }
+      .s_table table {
+        width: 100%;
+        color: white;
+        border-collapse: collapse;
+        border: 1px solid rgba(255, 255, 255, 0.83);
+        font-size: 12px;
+        background: #0a1528;
+      }
+      .s_table table td {
+        padding: 3px;
+        transition: all 0.3s;
+        cursor: pointer;
+      }
+      .s_table table td:hover {
+        background: rgb(0, 47, 75); /*마우스 오버시 칸 배경색*/
+        color: white;
+      }
+      .burger {
+        width: 35px;
+        height: 30px;
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+      }
+      .burger img {
+        opacity: 0.3;
+        transition: all 0.3s;
+      }
+      .burger:hover img {
+        opacity: 1;
+      }
+      #nav,
+      .fade {
+        width: 1200px;
+        height: auto;
+        margin: 0 auto;
+        background: #0a1528;
+        overflow: hidden;
+      }
+      .title {
+        width: 100%;
+        height: 100px;
+      }
+      .title h2 {
+        font-size: 30px;
+        text-align: left;
+        line-height: 100px;
+        margin-left: 10px;
+        color: #ffffff;
+      }
+      .c_box {
+        width: 191.6px;
+        height: auto;
+        background: rgb(0, 47, 75);
+        float: left;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+      }
+      .m_right {
+        margin-right: 0;
+        float: right;
+      }
+      .c_img {
+        width: 100%;
+        height: 206px;
+        overflow: hidden;
+      }
+      .ch_img {
+        transition: all 0.1s;
+      }
+      .c_box:hover .ch_img {
+        transform: scale(1.04);
+      }
+      .c_line {
+        width: 100%;
+        height: 4px;
+        background: #456b98;
+        transition: all 0.3s ease-in-out;
+        position: absolute;
+        overflow: hidden;
+      }
+      .c_name {
+        width: 100%;
+        height: 145px;
+        transition: all 0.3s;
+      }
+      .c_line h3,
+      .c_name h3 {
+        color: white;
+        font-size: 18px;
+        text-align: left;
+        padding-top: 13px;
+        padding-left: 13px;
+        padding-right: 13px;
+        transition: all 0.3s;
+      }
+      .c_line h3 {
+        font-weight: bold;
+        text-shadow: 0.7px 0.7px 1.2px #151515;
+      }
+      .c_line p,
+      .c_name p {
+        color: lightgray;
+        font-size: 13px;
+        text-align: left;
+        padding-top: 75px;
+        padding-left: 13px;
+        padding-right: 13px;
+        transition: all 0.3s;
+      }
+      .c_line p {
+        color: white;
+      }
+      .c_box:hover .c_line {
+        height: 149px;
+      }
+      .d_box,
+      .zoom {
+        width: 1200px;
+        height: auto;
+        margin: 10px auto;
+        background: #ffffff;
+        overflow: hidden;
+        position: relative;
+      }
+      .d_title {
+        width: 100%;
+        height: auto;
+        background: #0a1528;
+        overflow: hidden;
+      }
+      .d_title img {
+        width: 400px;
+        padding-bottom: 2px;
+      }
+      .d_img {
+        width: 500px;
+        float: left;
+        padding: 50px 30px;
+      }
+      .poster {
+        box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.5);
+        width: 382px;
+      }
+      fieldset {
+        margin-top: 20px;
+        padding: 5px;
+        width: auto;
+        border: 1px solid rgba(10, 21, 40, 0.15); /*갤러리 테두리색*/
+        background: #fafafa; /*갤러리 박스 배경색*/
+      }
+      legend {
+        color: #0a1528; /*갤러리 제목 색*/
+        text-align: left;
+        font-size: 20px; /*갤러리 제목크기*/
+        margin-left: 5px;
+        padding: 5px;
+      }
+      fieldset img {
+        transition: all 0.3s;
+        border: 5px solid #0a1528;
+      }
+      fieldset img:hover {
+        box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
+      }
+      .d_con {
+        width: 700px;
+        float: left;
+        padding: 30px;
+      }
+      table {
+        margin-bottom: 30px;
+      }
+      td {
+        padding: 10px 0;
+      }
+      .con_title {
+        font-weight: bold;
+        font-size: 30px;
+        text-align: left;
+        color: #151515;
+        height: 63px;
+        background-size: contain;
+        line-height: 43px;
+      }
+      .con {
+        text-align: justify;
+        font-size: 18px;
+        color: #383838;
+      }
+      .con_stitle {
+        text-align: left;
+        padding-top: 30px;
+        font-size: 13px;
+        font-weight: bold;
+        color: #5e6062;
+        padding-bottom: 0;
+      }
+      .con_det {
+        text-align: left;
+        vertical-align: top;
+        padding-top: 0;
+        font-size: 17px;
+        font-weight: bold;
+        line-height: 19px;
+      }
+      .trailer h3 {
+        font-weight: bold;
+        font-size: 30px;
+        text-align: left;
+        color: #151515;
+        height: 63px;
+        line-height: 43px;
+        margin-bottom: 10px;
+        padding-top: 8px;
+      }
+      .vthumb {
+        position: relative;
+      }
+      .thumb_over {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: all 0.3s;
+        opacity: 0;
+      }
+      .vthumb:hover .thumb_over {
+        opacity: 1;
+      }
+      .top {
+        width: 80px;
+        height: 30px;
+        background: #0a1528;
+        color: white;
+        font-weight: bold;
+        line-height: 30px;
+        position: absolute;
+        bottom: 30px;
+        left: 30px;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+      .top:hover {
+        background: #456b98;
+        color: #ffffff;
+      }
+      #footer {
+        width: 100%;
+        height: 400px;
+        padding: 100px;
+        background: black;
+      }
+      .ft_top {
+        width: 1200px;
+        height: 140px;
+        margin: 0 auto;
+      }
+      .ft_bottom {
+        width: 1200px;
+        height: 60px;
+        margin: 0 auto;
+      }
+      .ft_top_left,
+      .ft_top_mid,
+      .ft_top_right {
+        width: 400px;
+        height: 140px;
+        float: left;
+      }
+      .ft_logo {
+        width: 200px;
+        height: 140px;
+        padding-top: 8px;
+        float: left;
+      }
+      .ft_top_left_txt {
+        width: 180px;
+        height: 140px;
+        padding-top: 20px;
+        padding-left: 21px;
+        float: left;
+      }
+      ul {
+        list-style: none;
+      }
+      .ft_top_left_txt ul li {
+        text-align: left;
+        color: white;
+        font-size: 15px;
+        font-weight: bold;
+      }
+      .ft_top_left_txt ul li:hover {
+        color: aliceblue;
+      }
+      .ft_img {
+        width: 400px;
+        height: 70px;
+      }
+      .ft_img_img {
+        width: 100px;
+        height: 70px;
+        padding: 10px;
+        float: left;
+      }
+      .ft_img_txt {
+        width: 300px;
+        height: 70px;
+        padding: 15px;
+        float: left;
+      }
+      .ft_img_txt h3 {
+        font-size: 15px;
+        color: white;
+        text-align: left;
+      }
+      .ft_img_txt p {
+        font-size: 15px;
+        color: azure;
+        text-align: left;
+      }
+      .ft_top_right {
+        text-align: left;
+        padding: 20px;
+      }
+      .ft_top_right h3 {
+        font-size: 18px;
+        color: white;
+        margin-bottom: 20px;
+        text-align: left;
+      }
+      .ft_top_right a img {
+        margin-right: 50px;
+        filter: brightness(0.5);
+        transition: all 0.3s;
+      }
+      .ft_top_right a img:hover {
+        filter: none;
+      }
+      .ft_bottom ul li {
+        float: left;
+        color: lightgray;
+        font-size: 12px;
+        margin-top: 10px;
+        margin-bottom: 5px;
+        margin-right: 15px;
+        letter-spacing: -1px !important;
+      }
+      .ft_bottom ul li:hover {
+        color: white;
+      }
+      .ft_bottom ul li:first-child {
+        margin-left: 40px;
+      }
+      .ft_bottom p {
+        color: lightgray;
+        font-size: 13px;
+      }
+      *::-webkit-scrollbar {
+        width: 4px; /*스크롤바 너비*/
+      }
+      *::-webkit-scrollbar-track {
+        background: #151515; /*스크롤바 배경색*/
+      }
+      *::-webkit-scrollbar-thumb {
+        border-radius: 2px; /*스크롤바 버튼 테두리*/
+        background: #ccc; /*스크롤바 버튼 배경색*/
+        height: 30px; /*스크롤바 버튼 높이*/
+      }
+      *::-webkit-scrollbar-thumb:hover {
+        background: white; /*스크롤바 마우스 오버시 변환색*/
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="header">
+        <video
+          src="media/title.mp4"
+          autoplay
+          muted
+          loop
+          poster="https://via.placeholder.com/1920x400.png?text=Header+Movie+Image"
+        ></video>
+      </div>
+      <div id="sidemenu">
+        <div class="s_table">
+          <table border="1">
+            <tr>
+              <td onclick="fnMove('12')">불멸의 전설 아리</td>
+            </tr>
+            <tr>
+              <td onclick="fnMove('11')">Still Here</td>
+            </tr>
+            <tr>
+              <td onclick="fnMove('10')">Heartsteel</td>
+            </tr>
+            <tr>
+              <td onclick="fnMove('9')">The Call</td>
+            </tr>
+            <tr>
+              <td onclick="fnMove('8')">ARCANE</td>
+            </tr>
+            <tr>
+              <td onclick="fnMove('7')">대몰락</td>
+            </tr>
+            <tr>
+              <td onclick="fnMove('6')">피로 얼룩진 검</td>
+            </tr>
+            <tr>
+              <td onclick="fnMove('5')">Warriors</td>
+            </tr>
+            <tr>
+              <td onclick="fnMove('4')">Awaken</td>
+            </tr>
+            <tr>
+              <td onclick="fnMove('3')">K/DA</td>
+            </tr>
+            <tr>
+              <td onclick="fnMove('2')">야생의 마력</td>
+            </tr>
+            <tr>
+              <td onclick="fnMove('1')">Star Guardian</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="burger">
+        <img src="img/burger.png" alt="버거메뉴단추" />
+      </div>
+      <div id="nav" class="fade">
+        <div class="title" id="top">
+          <h2>League of Legends Cinematic</h2>
+        </div>
+        <div class="c_box" onclick="fnMove('12')" data-aos="fade">
+          <div class="c_img">
+            <img src="img/ahri.jpg" alt="불멸의 전설 아리" class="ch_img" />
+          </div>
+          <div class="c_line">
+            <h3>불멸의 전설 아리</h3>
+            <p>2024년</p>
+          </div>
+          <div class="c_name">
+            <h3>불멸의 전설 아리</h3>
+            <p>2024년</p>
+          </div>
+        </div>
+        <div class="c_box" onclick="fnMove('11')" data-aos="fade">
+          <div class="c_img">
+            <img src="img/steel.jpg" alt="스틸히얼" class="ch_img" />
+          </div>
+          <div class="c_line">
+            <h3>Still Here</h3>
+            <p>2024년</p>
+          </div>
+          <div class="c_name">
+            <h3>Still Here</h3>
+            <p>2024년</p>
+          </div>
+        </div>
+        <div class="c_box" onclick="fnMove('10')" data-aos="fade">
+          <div class="c_img">
+            <img src="img/heart.jpg" alt="Heartsteel" class="ch_img" />
+          </div>
+          <div class="c_line">
+            <h3>Heartsteel</h3>
+            <p>2023년</p>
+          </div>
+          <div class="c_name">
+            <h3>Heartsteel</h3>
+            <p>2023년</p>
+          </div>
+        </div>
+        <div class="c_box" onclick="fnMove('9')" data-aos="fade">
+          <div class="c_img">
+            <img src="img/call.jpg" alt="부름" class="ch_img" />
+          </div>
+          <div class="c_line">
+            <h3>The Call</h3>
+            <p>2022년</p>
+          </div>
+          <div class="c_name">
+            <h3>The Call</h3>
+            <p>2022년</p>
+          </div>
+        </div>
+        <div class="c_box" onclick="fnMove('8')" data-aos="fade">
+          <div class="c_img">
+            <img src="img/acane.jpg" alt="Arcane" class="ch_img" />
+          </div>
+          <div class="c_line">
+            <h3>ARCANE</h3>
+            <p>2021년</p>
+          </div>
+          <div class="c_name">
+            <h3>ARCANE</h3>
+            <p>2021년</p>
+          </div>
+        </div>
+        <div class="c_box m_right" onclick="fnMove('7')" data-aos="fade">
+          <div class="c_img">
+            <img src="img/fall.jpg" alt="대몰락" class="ch_img" />
+          </div>
+          <div class="c_line">
+            <h3>대몰락</h3>
+            <p>2021년</p>
+          </div>
+          <div class="c_name">
+            <h3>대몰락</h3>
+            <p>2021년</p>
+          </div>
+        </div>
+        <div class="c_box" onclick="fnMove('6')" data-aos="fade">
+          <div class="c_img">
+            <img src="img/yone.jpg" alt="피로 얼룩진 검" class="ch_img" />
+          </div>
+          <div class="c_line">
+            <h3>피로 얼룩진 검</h3>
+            <p>2020년</p>
+          </div>
+          <div class="c_name">
+            <h3>피로 얼룩진 검</h3>
+            <p>2020년</p>
+          </div>
+        </div>
+        <div class="c_box" onclick="fnMove('5')" data-aos="fade">
+          <div class="c_img">
+            <img src="img/warrier.jpg" alt="Warriors" class="ch_img" />
+          </div>
+          <div class="c_line">
+            <h3>Warriors</h3>
+            <p>2020년</p>
+          </div>
+          <div class="c_name">
+            <h3>Warriors</h3>
+            <p>2020년</p>
+          </div>
+        </div>
+        <div class="c_box" onclick="fnMove('4')" data-aos="fade">
+          <div class="c_img">
+            <img src="img/awaken.jpg" alt="Awaken" class="ch_img" />
+          </div>
+          <div class="c_line">
+            <h3>Awaken</h3>
+            <p>2019년</p>
+          </div>
+          <div class="c_name">
+            <h3>Awaken</h3>
+            <p>2019년</p>
+          </div>
+        </div>
+        <div class="c_box" onclick="fnMove('3')" data-aos="fade">
+          <div class="c_img">
+            <img src="img/kda.jpg" alt="KDA" class="ch_img" />
+          </div>
+          <div class="c_line">
+            <h3>K/DA</h3>
+            <p>2018년</p>
+          </div>
+          <div class="c_name">
+            <h3>K/DA</h3>
+            <p>2018년</p>
+          </div>
+        </div>
+        <div class="c_box" onclick="fnMove('2')" data-aos="fade">
+          <div class="c_img">
+            <img src="img/jakan.jpg" alt="야생의 마력" class="ch_img" />
+          </div>
+          <div class="c_line">
+            <h3>야생의 마력</h3>
+            <p>2017년</p>
+          </div>
+          <div class="c_name">
+            <h3>야생의 마력</h3>
+            <p>2017년</p>
+          </div>
+        </div>
+        <div class="c_box m_right" onclick="fnMove('1')" data-aos="fade">
+          <div class="c_img">
+            <img src="img/star.jpg" alt="Star Guardian" class="ch_img" />
+          </div>
+          <div class="c_line">
+            <h3>Star Guardian</h3>
+            <p>2016년</p>
+          </div>
+          <div class="c_name">
+            <h3>Star Guardian</h3>
+            <p>2016년</p>
+          </div>
+        </div>
+      </div>
+      <div class="d_box">
+        <div class="d_title" id="d12">
+          <img src="img/LoL_Logo_Rendered_LARGE.png" alt="롤 타이틀이미지" />
+        </div>
+        <div class="d_img">
+          <img src="img/ari_poster.jpg" alt="아리포스터" class="poster" />
+          <fieldset class="gallery12">
+            <legend>Gallery</legend>
+            <a href="img/ari1.PNG" title="Ari"
+              ><img src="img/ari1_sum.jpg" alt="아리섬네일"
+            /></a>
+            <a href="img/ari2.PNG" title="Ari"
+              ><img src="img/ari2_sum.jpg" alt="아리섬네일"
+            /></a>
+            <a href="img/ari3.PNG" title="Ari"
+              ><img src="img/ari3_sum.jpg" alt="아리섬네일"
+            /></a>
+            <a href="img/ari4.png" title="Ari"
+              ><img src="img/ari4_sum.jpg" alt="아리섬네일"
+            /></a>
+            <a href="img/ari5.png" title="Ari"
+              ><img src="img/ari5_sum.jpg" alt="아리섬네일"
+            /></a>
+          </fieldset>
+        </div>
+        <div class="d_con">
+          <table>
+            <tr>
+              <td colspan="3" class="con_title">불멸의 전설 아리</td>
+            </tr>
+            <tr>
+              <td colspan="3">
+                <p class="con">
+                  라이엇 게임즈가 '페이커' 이상혁 선수를 기념하기 위해 제작한
+                  '불멸의 전설 아리' 스킨으로 페이커 선수가 소속된 T1 상징색
+                  검정과 빨강으로 강조됐다. 다른 아리 스킨 모습과 달리 구미호의
+                  아홉 개 꼬리까지 여우를 형상화한 게 특징이다.
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td class="con_stitle">제작사</td>
+              <td class="con_stitle">협업</td>
+              <td class="con_stitle"></td>
+            </tr>
+            <tr>
+              <td class="con_det">라이엇 게임즈</td>
+              <td class="con_det">FAKER</td>
+              <td class="con_det"></td>
+            </tr>
+            <tr>
+              <td class="con_stitle">출시일</td>
+              <td class="con_stitle"></td>
+              <td class="con_stitle"></td>
+            </tr>
+            <tr>
+              <td class="con_det">2024년 6월 14일</td>
+              <td class="con_det"></td>
+              <td class="con_det"></td>
+            </tr>
+            <tr>
+              <td class="con_stitle"></td>
+              <td class="con_stitle"></td>
+              <td class="con_stitle"></td>
+            </tr>
+            <tr>
+              <td class="con_det"></td>
+              <td class="con_det"></td>
+              <td class="con_det"></td>
+            </tr>
+          </table>
+          <div class="trailer">
+            <h3>트레일러 영상</h3>
+            <div class="vthumb">
+              <iframe
+                width="640"
+                height="360"
+                src="https://www.youtube.com/embed/upeTtEF2ioc?si=kQbMpJYvtK7zKtPM"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+        <div class="top">▲ TOP</div>
+      </div>
+      <div class="d_box">
+        <div class="d_title" id="d11"></div>
+        <div class="d_img">
+          <img
+            src="img/steelhere_poster.jpg"
+            alt="스틸히어포스터"
+            class="poster"
+          />
+          <fieldset class="gallery11">
+            <legend>Gallery</legend>
+            <a href="img/steelhere1.PNG" title="Still Here"
+              ><img src="img/steelhere1_sum.jpg" alt="스틸히어섬네일"
+            /></a>
+            <a href="img/steelhere2.PNG" title="Still Here"
+              ><img src="img/steelhere2_sum.jpg" alt="스틸히어섬네일"
+            /></a>
+            <a href="img/steelhere3.PNG" title="Still Here"
+              ><img src="img/steelhere3_sum.jpg" alt="스틸히어섬네일"
+            /></a>
+            <a href="img/steelhere4.PNG" title="Still Here"
+              ><img src="img/steelhere4_sum.jpg" alt="스틸히어섬네일"
+            /></a>
+            <a href="img/steelhere5.PNG" title="Still Here"
+              ><img src="img/steelhere5_sum.jpg" alt="스틸히어섬네일"
+            /></a>
+          </fieldset>
+        </div>
+        <div class="d_con">
+          <table>
+            <tr>
+              <td colspan="3" class="con_title">Still Here</td>
+            </tr>
+            <tr>
+              <td colspan="3">
+                <p class="con">
+                  2024 시즌 시네마틱 - 리그 오브 레전드 <br />
+                  과거, 현재 그리고 수많은 미래. 우리는 모두 기억한다. 난 아직
+                  여기에 있어.
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td class="con_stitle">제작사</td>
+              <td class="con_stitle">협업</td>
+              <td class="con_stitle"></td>
+            </tr>
+            <tr>
+              <td class="con_det">라이엇 게임즈</td>
+              <td class="con_det">Unit Image 및 벤 히본</td>
+              <td class="con_det"></td>
+            </tr>
+            <tr>
+              <td class="con_stitle">공개일</td>
+              <td class="con_stitle">음원</td>
+              <td class="con_stitle"></td>
+            </tr>
+            <tr>
+              <td class="con_det">2024년 1월 10일</td>
+              <td class="con_det">Still Here</td>
+              <td class="con_det"></td>
+            </tr>
+            <tr>
+              <td class="con_stitle"></td>
+              <td class="con_stitle"></td>
+              <td class="con_stitle"></td>
+            </tr>
+            <tr>
+              <td class="con_det"></td>
+              <td class="con_det"></td>
+              <td class="con_det"></td>
+            </tr>
+          </table>
+          <div class="trailer">
+            <h3>트레일러 영상</h3>
+            <div class="vthumb">
+              <iframe
+                width="640"
+                height="360"
+                src="https://www.youtube.com/embed/ZHhqwBwmRkI?si=u4su3lo86knNLnBH"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+        <div class="top">▲ TOP</div>
+      </div>
+      <div class="d_box">
+        <div class="d_title" id="d10"></div>
+        <div class="d_img">
+          <img src="img/heart_poster.jpg" alt="하트스틸포스터" class="poster" />
+          <fieldset class="gallery10">
+            <legend>Gallery</legend>
+            <a href="img/heart1.PNG" title="Heart Steel"
+              ><img src="img/heart1_sum.jpg" alt="하트스틸섬네일"
+            /></a>
+            <a href="img/heart2.PNG" title="Heart Steel"
+              ><img src="img/heart2_sum.jpg" alt="하트스틸섬네일"
+            /></a>
+            <a href="img/heart3.PNG" title="Heart Steel"
+              ><img src="img/heart3_sum.jpg" alt="하트스틸섬네일"
+            /></a>
+            <a href="img/heart4.PNG" title="Heart Steel"
+              ><img src="img/heart4_sum.jpg" alt="하트스틸섬네일"
+            /></a>
+            <a href="img/heart5.PNG" title="Heart Steel"
+              ><img src="img/heart5_sum.jpg" alt="하트스틸섬네일"
+            /></a>
+          </fieldset>
+        </div>
+        <div class="d_con">
+          <table>
+            <tr>
+              <td colspan="3" class="con_title">HEARTSTEEL</td>
+            </tr>
+            <tr>
+              <td colspan="3">
+                <p class="con">
+                  혜성처럼 등장한 신인 HEARTSTEEL은 케인,이즈리얼, 세트, 요네,
+                  크산테 그리고 아펠리오스로 구성된 밴드. 'Paranoia'에는 백현,
+                  토비 루, ØZI 및 칼 스크루비 님이 참여했다.
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td class="con_stitle">제작사</td>
+              <td class="con_stitle">협업</td>
+              <td class="con_stitle"></td>
+            </tr>
+            <tr>
+              <td class="con_det">라이엇 게임즈</td>
+              <td class="con_det">SAUVAGE.TV</td>
+              <td class="con_det"></td>
+            </tr>
+            <tr>
+              <td class="con_stitle">공개일</td>
+              <td class="con_stitle">음원</td>
+              <td class="con_stitle"></td>
+            </tr>
+            <tr>
+              <td class="con_det">2023년 10월 23일</td>
+              <td class="con_det">PARANOIA</td>
+              <td class="con_det"></td>
+            </tr>
+            <tr>
+              <td class="con_stitle"></td>
+              <td class="con_stitle"></td>
+              <td class="con_stitle"></td>
+            </tr>
+            <tr>
+              <td class="con_det"></td>
+              <td class="con_det"></td>
+              <td class="con_det"></td>
+            </tr>
+          </table>
+          <div class="trailer">
+            <h3>트레일러 영상</h3>
+            <div class="vthumb">
+              <iframe
+                width="640"
+                height="360"
+                src="https://www.youtube.com/embed/MDErQ1KTzaI?si=QKrAP_hTQAhOZeXi"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+        <div class="top">▲ TOP</div>
+      </div>
+      <div class="d_box">
+        <div class="d_title" id="d9"></div>
+        <div class="d_img">
+          <img src="img/call_poster.jpg" alt="부름포스터" class="poster" />
+          <fieldset class="gallery9">
+            <legend>Gallery</legend>
+            <a href="img/call1.PNG" title="부름"
+              ><img src="img/call1_sum.jpg" alt="부름섬네일"
+            /></a>
+            <a href="img/call2.PNG" title="부름"
+              ><img src="img/call2_sum.jpg" alt="부름섬네일"
+            /></a>
+            <a href="img/call3.PNG" title="부름"
+              ><img src="img/call3_sum.jpg" alt="부름섬네일"
+            /></a>
+            <a href="img/call4.PNG" title="부름"
+              ><img src="img/call4_sum.jpg" alt="부름섬네일"
+            /></a>
+            <a href="img/call5.PNG" title="부름"
+              ><img src="img/call5_sum.jpg" alt="부름섬네일"
+            /></a>
+          </fieldset>
+        </div>
+        <div class="d_con">
+          <table>
+            <tr>
+              <td colspan="3" class="con_title">The Call</td>
+            </tr>
+            <tr>
+              <td colspan="3">
+                <p class="con">
+                  2022 시즌 시네마틱 - 리그 오브 레전드 <br />쓰러진 이들을
+                  위해. 짓밟히고 좌절한 이들을 위해. 다시 일어서는 이들을 위해.
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td class="con_stitle">제작사</td>
+              <td class="con_stitle">협업</td>
+              <td class="con_stitle"></td>
+            </tr>
+            <tr>
+              <td class="con_det">라이엇 게임즈</td>
+              <td class="con_det">Unit Image 및 벤 히본</td>
+              <td class="con_det"></td>
+            </tr>
+            <tr>
+              <td class="con_stitle">공개일</td>
+              <td class="con_stitle">음원</td>
+              <td class="con_stitle"></td>
+            </tr>
+            <tr>
+              <td class="con_det">2022년 1월 8일</td>
+              <td class="con_det">The Call (feat. Edda Hayes)</td>
+              <td class="con_det"></td>
+            </tr>
+            <tr>
+              <td class="con_stitle"></td>
+              <td class="con_stitle"></td>
+              <td class="con_stitle"></td>
+            </tr>
+            <tr>
+              <td class="con_det"></td>
+              <td class="con_det"></td>
+              <td class="con_det"></td>
+            </tr>
+          </table>
+          <div class="trailer">
+            <h3>트레일러 영상</h3>
+            <div class="vthumb">
+              <iframe
+                width="640"
+                height="360"
+                src="https://www.youtube.com/embed/mDYqT0_9VR4?si=CphfyDIfZxb12msm"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+        <div class="top">▲ TOP</div>
+      </div>
+      <div class="d_box">
+        <div class="d_title" id="d8"></div>
+        <div class="d_img">
+          <img src="img/arane_poster.jpg" alt="아케인포스터" class="poster" />
+          <fieldset class="gallery8">
+            <legend>Gallery</legend>
+            <a href="img/a.jpg" title="Arcane"
+              ><img src="img/gallery_a.jpg" alt="아케인섬네일"
+            /></a>
+            <a href="img/b.jpg" title="Arcane"
+              ><img src="img/gallery_b.jpg" alt="아케인섬네일"
+            /></a>
+            <a href="img/c.jpg" title="Arcane"
+              ><img src="img/gallery_c.jpg" alt="아케인섬네일"
+            /></a>
+            <a href="img/d.jpg" title="Arcane"
+              ><img src="img/gallery_d.jpg" alt="아케인섬네일"
+            /></a>
+            <a href="img/e.jpg" title="Arcane"
+              ><img src="img/gallery_e.jpg" alt="아케인섬네일"
+            /></a>
+          </fieldset>
+        </div>
+        <div class="d_con">
+          <table>
+            <tr>
+              <td colspan="3" class="con_title">ARCANE</td>
+            </tr>
+            <tr>
+              <td colspan="3">
+                <p class="con">
+                  지상 도시 필트오버와 그 아래의 지하 도시 자운. 극심하게
+                  반목하는 두 쌍둥이 도시에서, 두 자매가 서로 반대편에 서서
+                  싸우기에 이른다. 마법 기술과 신념의 충돌 속에서 전쟁이
+                  시작된다.
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td class="con_stitle">제작사</td>
+              <td class="con_stitle">제작</td>
+              <td class="con_stitle"></td>
+            </tr>
+            <tr>
+              <td class="con_det">라이엇 게임즈</td>
+              <td class="con_det">Christian Linke, Alex Yee</td>
+              <td class="con_det"></td>
+            </tr>
+            <tr>
+              <td class="con_stitle">상영일</td>
+              <td class="con_stitle">타이틀곡</td>
+              <td class="con_stitle"></td>
+            </tr>
+            <tr>
+              <td class="con_det">2021년 11월 7일</td>
+              <td class="con_det">Imagine Dragons JID - Enemy</td>
+              <td class="con_det"></td>
+            </tr>
+            <tr>
+              <td class="con_stitle"></td>
+              <td class="con_stitle"></td>
+              <td class="con_stitle"></td>
+            </tr>
+            <tr>
+              <td class="con_det"></td>
+              <td class="con_det"></td>
+              <td class="con_det"></td>
+            </tr>
+          </table>
+          <div class="trailer">
+            <h3>트레일러 영상</h3>
+            <div class="vthumb">
+              <iframe
+                width="640"
+                height="360"
+                src="https://www.youtube.com/embed/4Ps6nV4wiCE?si=hFlv-xF1WstrNYtL"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+        <div class="top">▲ TOP</div>
+      </div>
+      <div class="d_box">
+        <div class="d_title" id="d7"></div>
+        <div class="d_img">
+          <img src="img/fall_poster.jpg" alt="대몰락포스터" class="poster" />
+          <fieldset class="gallery7">
+            <legend>Gallery</legend>
+            <a href="img/fall1.PNG" title="대몰락"
+              ><img src="img/fall1_sum.jpg" alt="대몰락섬네일"
+            /></a>
+            <a href="img/fall2.PNG" title="대몰락"
+              ><img src="img/fall2_sum.jpg" alt="대몰락섬네일"
+            /></a>
+            <a href="img/fall3.PNG" title="대몰락"
+              ><img src="img/fall3_sum.jpg" alt="대몰락섬네일"
+            /></a>
+            <a href="img/fall4.PNG" title="대몰락"
+              ><img src="img/fall4_sum.jpg" alt="대몰락섬네일"
+            /></a>
+            <a href="img/fall5.PNG" title="대몰락"
+              ><img src="img/fall5_sum.jpg" alt="대몰락섬네일"
+            /></a>
+          </fieldset>
+        </div>
+        <div class="d_con">
+          <table>
+            <tr>
+              <td colspan="3" class="con_title">대몰락</td>
+            </tr>
+            <tr>
+              <td colspan="3">
+                <p class="con">
+                  2021 시즌 시네마틱 - 리그 오브 레전드<br />
+                  왕의 귀환 - 그의 손길 끝에는 몰락뿐
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td class="con_stitle">제작사</td>
+              <td class="con_stitle">협업</td>
+              <td class="con_stitle"></td>
+            </tr>
+            <tr>
+              <td class="con_det">라이엇 게임즈</td>
+              <td class="con_det">Digic Pictures</td>
+              <td class="con_det"></td>
+            </tr>
+            <tr>
+              <td class="con_stitle">공개일</td>
+              <td class="con_stitle"></td>
+              <td class="con_stitle"></td>
+            </tr>
+            <tr>
+              <td class="con_det">2021년 1월 9일</td>
+              <td class="con_det"></td>
+              <td class="con_det"></td>
+            </tr>
+            <tr>
+              <td class="con_stitle"></td>
+              <td class="con_stitle"></td>
+              <td class="con_stitle"></td>
+            </tr>
+            <tr>
+              <td class="con_det"></td>
+              <td class="con_det"></td>
+              <td class="con_det"></td>
+            </tr>
+          </table>
+          <div class="trailer">
+            <h3>트레일러 영상</h3>
+            <div class="vthumb">
+              <iframe
+                width="640"
+                height="360"
+                src="https://www.youtube.com/embed/lXWSn8lAn2k?si=rA0yahClLuVE44DU"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+        <div class="top">▲ TOP</div>
+      </div>
+      <div class="d_box">
+        <div class="d_title" id="d6"></div>
+        <div class="d_img">
+          <img src="img/yasuo_poster.jpg" alt="얼룩진검포스터" class="poster" />
+          <fieldset class="gallery6">
+            <legend>Gallery</legend>
+            <a href="img/yasuo1.PNG" title="피로 얼룩진 검"
+              ><img src="img/yasuo1_sum.jpg" alt="얼룩진검섬네일"
+            /></a>
+            <a href="img/yasuo2.PNG" title="피로 얼룩진 검"
+              ><img src="img/yasuo2_sum.jpg" alt="얼룩진검섬네일"
+            /></a>
+            <a href="img/yasuo3.PNG" title="피로 얼룩진 검"
+              ><img src="img/yasuo3_sum.jpg" alt="얼룩진검섬네일"
+            /></a>
+            <a href="img/yasuo4.PNG" title="피로 얼룩진 검"
+              ><img src="img/yasuo4_sum.jpg" alt="얼룩진검섬네일"
+            /></a>
+            <a href="img/yasuo5.PNG" title="피로 얼룩진 검"
+              ><img src="img/yasuo5_sum.jpg" alt="얼룩진검섬네일"
+            /></a>
+          </fieldset>
+        </div>
+        <div class="d_con">
+          <table>
+            <tr>
+              <td colspan="3" class="con_title">형제의 피로 얼룩진 검</td>
+            </tr>
+            <tr>
+              <td colspan="3">
+                <p class="con">
+                  영혼의 꽃 시네마틱 - 리그 오브 레전드 <br />
+                  선택에 의해 찢어졌지만, 운명에 의해 재회한 두 형제. <br />
+                  용서받지 못한 자와 잊히지 못한 자.
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td class="con_stitle">제작사</td>
+              <td class="con_stitle">협업</td>
+              <td class="con_stitle"></td>
+            </tr>
+            <tr>
+              <td class="con_det">라이엇 게임즈</td>
+              <td class="con_det">Haolin</td>
+              <td class="con_det"></td>
+            </tr>
+            <tr>
+              <td class="con_stitle">공개일</td>
+              <td class="con_stitle"></td>
+              <td class="con_stitle"></td>
+            </tr>
+            <tr>
+              <td class="con_det">2020년 7월 24일</td>
+              <td class="con_det"></td>
+              <td class="con_det"></td>
+            </tr>
+            <tr>
+              <td class="con_stitle"></td>
+              <td class="con_stitle"></td>
+              <td class="con_stitle"></td>
+            </tr>
+            <tr>
+              <td class="con_det"></td>
+              <td class="con_det"></td>
+              <td class="con_det"></td>
+            </tr>
+          </table>
+          <div class="trailer">
+            <h3>트레일러 영상</h3>
+            <div class="vthumb">
+              <iframe
+                width="640"
+                height="360"
+                src="https://www.youtube.com/embed/7xmgRLTjxIw?si=GfUdQH9BNO5cM1d1"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+        <div class="top">▲ TOP</div>
+      </div>
+      <div class="d_box">
+        <div class="d_title" id="d5"></div>
+        <div class="d_img">
+          <img
+            src="img/warriors_poster.jpg"
+            alt="전사들포스터"
+            class="poster"
+          />
+          <fieldset class="gallery5">
+            <legend>Gallery</legend>
+            <a href="img/warriors1.PNG" title="Warriors"
+              ><img src="img/warriors1_sum.jpg" alt="전사들섬네일"
+            /></a>
+            <a href="img/warriors2.PNG" title="Warriors"
+              ><img src="img/warriors2_sum.jpg" alt="전사들섬네일"
+            /></a>
+            <a href="img/warriors3.PNG" title="Warriors"
+              ><img src="img/warriors3_sum.jpg" alt="전사들섬네일"
+            /></a>
+            <a href="img/warriors4.PNG" title="Warriors"
+              ><img src="img/warriors4_sum.jpg" alt="전사들섬네일"
+            /></a>
+            <a href="img/warriors5.PNG" title="Warriors"
+              ><img src="img/warriors5_sum.jpg" alt="전사들섬네일"
+            /></a>
+          </fieldset>
+        </div>
+        <div class="d_con">
+          <table>
+            <tr>
+              <td colspan="3" class="con_title">Warriors</td>
+            </tr>
+            <tr>
+              <td colspan="3">
+                <p class="con">
+                  2020 시즌 시네마틱 – 리그 오브 레전드 <br />
+                  우리는 전사들이다.
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td class="con_stitle">제작사</td>
+              <td class="con_stitle">협업</td>
+              <td class="con_stitle"></td>
+            </tr>
+            <tr>
+              <td class="con_det">라이엇 게임즈</td>
+              <td class="con_det">BlurStudio</td>
+              <td class="con_det"></td>
+            </tr>
+            <tr>
+              <td class="con_stitle">공개일</td>
+              <td class="con_stitle"></td>
+              <td class="con_stitle"></td>
+            </tr>
+            <tr>
+              <td class="con_det">2020년 1월 9일</td>
+              <td class="con_det"></td>
+              <td class="con_det"></td>
+            </tr>
+            <tr>
+              <td class="con_stitle"></td>
+              <td class="con_stitle"></td>
+              <td class="con_stitle"></td>
+            </tr>
+            <tr>
+              <td class="con_det"></td>
+              <td class="con_det"></td>
+              <td class="con_det"></td>
+            </tr>
+          </table>
+          <div class="trailer">
+            <h3>트레일러 영상</h3>
+            <div class="vthumb">
+              <iframe
+                width="640"
+                height="360"
+                src="https://www.youtube.com/embed/aR-KAldshAE?si=5PEcpcVq9i-hZjNd"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+        <div class="top">▲ TOP</div>
+      </div>
+      <div class="d_box">
+        <div class="d_title" id="d4"></div>
+        <div class="d_img">
+          <img
+            src="img/awaken_poster.jpg"
+            alt="어웨이큰포스터"
+            class="poster"
+          />
+          <fieldset class="gallery4">
+            <legend>Gallery</legend>
+            <a href="img/awaken1.PNG" title="Awaken"
+              ><img src="img/awaken1_sum.jpg" alt="어웨이큰섬네일"
+            /></a>
+            <a href="img/awaken2.PNG" title="Awaken"
+              ><img src="img/awaken2_sum.jpg" alt="어웨이큰섬네일"
+            /></a>
+            <a href="img/awaken3.jpg" title="Awaken"
+              ><img src="img/awaken3_sum.jpg" alt="어웨이큰섬네일"
+            /></a>
+            <a href="img/awaken4.PNG" title="Awaken"
+              ><img src="img/awaken4_sum.jpg" alt="어웨이큰섬네일"
+            /></a>
+            <a href="img/awaken5.jpg" title="Awaken"
+              ><img src="img/awaken5_sum.jpg" alt="어웨이큰섬네일"
+            /></a>
+          </fieldset>
+        </div>
+        <div class="d_con">
+          <table>
+            <tr>
+              <td colspan="3" class="con_title">Awaken</td>
+            </tr>
+            <tr>
+              <td colspan="3">
+                <p class="con">
+                  2019 시즌 시네마틱 – 리그 오브 레전드 <br />
+                  치명적인 대작이 펼쳐진다. 완전한 저항, 살아날 수 있는 기회.
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td class="con_stitle">제작사</td>
+              <td class="con_stitle">협업</td>
+              <td class="con_stitle"></td>
+            </tr>
+            <tr>
+              <td class="con_det">라이엇 게임즈</td>
+              <td class="con_det">Digic Pictures</td>
+              <td class="con_det"></td>
+            </tr>
+            <tr>
+              <td class="con_stitle">공개일</td>
+              <td class="con_stitle"></td>
+              <td class="con_stitle"></td>
+            </tr>
+            <tr>
+              <td class="con_det">2019년 1월 21일</td>
+              <td class="con_det"></td>
+              <td class="con_det"></td>
+            </tr>
+            <tr>
+              <td class="con_stitle"></td>
+              <td class="con_stitle"></td>
+              <td class="con_stitle"></td>
+            </tr>
+            <tr>
+              <td class="con_det"></td>
+              <td class="con_det"></td>
+              <td class="con_det"></td>
+            </tr>
+          </table>
+          <div class="trailer">
+            <h3>트레일러 영상</h3>
+            <div class="vthumb">
+              <iframe
+                width="640"
+                height="360"
+                src="https://www.youtube.com/embed/zF5Ddo9JdpY?si=wIUHiTwoJvd4Itiv"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+        <div class="top">▲ TOP</div>
+      </div>
+      <div class="d_box">
+        <div class="d_title" id="d3"></div>
+        <div class="d_img">
+          <img src="img/kda_poster.jpg" alt="kda포스터" class="poster" />
+          <fieldset class="gallery3">
+            <legend>Gallery</legend>
+            <a href="img/kda1.JPG" title="KDA"
+              ><img src="img/kda1_sum.jpg" alt="KDA섬네일"
+            /></a>
+            <a href="img/kda2.JPG" title="KDA"
+              ><img src="img/kda2_sum.jpg" alt="KDA섬네일"
+            /></a>
+            <a href="img/kda3.JPG" title="KDA"
+              ><img src="img/kda3_sum.jpg" alt="KDA섬네일"
+            /></a>
+            <a href="img/kda4.JPG" title="KDA"
+              ><img src="img/kda4_sum.jpg" alt="KDA섬네일"
+            /></a>
+            <a href="img/kda5.JPG" title="KDA"
+              ><img src="img/kda5_sum.jpg" alt="KDA섬네일"
+            /></a>
+          </fieldset>
+        </div>
+        <div class="d_con">
+          <table>
+            <tr>
+              <td colspan="3" class="con_title">K/DA - MORE</td>
+            </tr>
+            <tr>
+              <td colspan="3">
+                <p class="con">
+                  K/DA는 아리, 이블린, 아칼리, 카이사로 구성된 음악계의 가상
+                  슈퍼그룹. <br />
+                  ft.(여자)아이들 미연,소연,Madison Beer, Lexie Liu, Jaira
+                  Burns,세라핀
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td class="con_stitle">제작사</td>
+              <td class="con_stitle">협업</td>
+              <td class="con_stitle"></td>
+            </tr>
+            <tr>
+              <td class="con_det">라이엇 게임즈</td>
+              <td class="con_det">라이엇 게임즈 뮤직</td>
+              <td class="con_det"></td>
+            </tr>
+            <tr>
+              <td class="con_stitle">공개일</td>
+              <td class="con_stitle">음원</td>
+              <td class="con_stitle"></td>
+            </tr>
+            <tr>
+              <td class="con_det">2020년 10월 28일</td>
+              <td class="con_det">MORE</td>
+              <td class="con_det"></td>
+            </tr>
+            <tr>
+              <td class="con_stitle"></td>
+              <td class="con_stitle"></td>
+              <td class="con_stitle"></td>
+            </tr>
+            <tr>
+              <td class="con_det"></td>
+              <td class="con_det"></td>
+              <td class="con_det"></td>
+            </tr>
+          </table>
+          <div class="trailer">
+            <h3>트레일러 영상</h3>
+            <div class="vthumb">
+              <iframe
+                width="640"
+                height="360"
+                src="https://www.youtube.com/embed/3VTkBuxU4yk?si=gl-V3ZpiU5upIOMP"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+        <div class="top">▲ TOP</div>
+      </div>
+      <div class="d_box">
+        <div class="d_title" id="d2"></div>
+        <div class="d_img">
+          <img src="img/jakan_poster.jpg" alt="마력포스터" class="poster" />
+          <fieldset class="gallery2">
+            <legend>Gallery</legend>
+            <a href="img/jakan1.JPG" title="자야라칸"
+              ><img src="img/jakan1_sum.jpg" alt="마력섬네일"
+            /></a>
+            <a href="img/jakan2.JPG" title="자야라칸"
+              ><img src="img/jakan2_sum.jpg" alt="마력섬네일"
+            /></a>
+            <a href="img/jakan3.JPG" title="자야라칸"
+              ><img src="img/jakan3_sum.jpg" alt="마력섬네일"
+            /></a>
+            <a href="img/jakan4.JPG" title="자야라칸"
+              ><img src="img/jakan4_sum.jpg" alt="마력섬네일"
+            /></a>
+            <a href="img/jakan5.JPG" title="자야라칸"
+              ><img src="img/jakan5_sum.jpg" alt="마력섬네일"
+            /></a>
+          </fieldset>
+        </div>
+        <div class="d_con">
+          <table>
+            <tr>
+              <td colspan="3" class="con_title">자야,라칸: 야생의 마력</td>
+            </tr>
+            <tr>
+              <td colspan="3">
+                <p class="con">
+                  챔피언 트레일러 - 리그 오브 레전드 <br />
+                  어둠 속에 도사린 치명적인 적의 위협. <br />
+                  아이오니아가 지녔던 야생의 마력을 되찾기란 쉽지만은 않다.
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td class="con_stitle">제작사</td>
+              <td class="con_stitle"></td>
+              <td class="con_stitle"></td>
+            </tr>
+            <tr>
+              <td class="con_det">라이엇 게임즈</td>
+              <td class="con_det"></td>
+              <td class="con_det"></td>
+            </tr>
+            <tr>
+              <td class="con_stitle">공개일</td>
+              <td class="con_stitle"></td>
+              <td class="con_stitle"></td>
+            </tr>
+            <tr>
+              <td class="con_det">2017년 4월 14일</td>
+              <td class="con_det"></td>
+              <td class="con_det"></td>
+            </tr>
+            <tr>
+              <td class="con_stitle"></td>
+              <td class="con_stitle"></td>
+              <td class="con_stitle"></td>
+            </tr>
+            <tr>
+              <td class="con_det"></td>
+              <td class="con_det"></td>
+              <td class="con_det"></td>
+            </tr>
+          </table>
+          <div class="trailer">
+            <h3>트레일러 영상</h3>
+            <div class="vthumb">
+              <iframe
+                width="640"
+                height="360"
+                src="https://www.youtube.com/embed/kxaSHsWBYRo?si=C2UbCVEP5cWgqx6W"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+        <div class="top">▲ TOP</div>
+      </div>
+      <div class="d_box">
+        <div class="d_title" id="d1"></div>
+        <div class="d_img">
+          <img src="img/star_poster.jpg" alt="별수호자포스터" class="poster" />
+          <fieldset class="gallery1">
+            <legend>Gallery</legend>
+            <a href="img/star1.PNG" title="Star Guardian"
+              ><img src="img/star1_sum.jpg" alt="별수호자섬네일"
+            /></a>
+            <a href="img/star2.PNG" title="Star Guardian"
+              ><img src="img/star2_sum.jpg" alt="별수호자섬네일"
+            /></a>
+            <a href="img/star3.PNG" title="Star Guardian"
+              ><img src="img/star3_sum.jpg" alt="별수호자섬네일"
+            /></a>
+            <a href="img/star4.PNG" title="Star Guardian"
+              ><img src="img/star4_sum.jpg" alt="별수호자섬네일"
+            /></a>
+            <a href="img/star5.PNG" title="Star Guardian"
+              ><img src="img/star5_sum.jpg" alt="별수호자섬네일"
+            /></a>
+          </fieldset>
+        </div>
+        <div class="d_con">
+          <table>
+            <tr>
+              <td colspan="3" class="con_title">Star Guardian</td>
+            </tr>
+            <tr>
+              <td colspan="3">
+                <p class="con">
+                  Burning Bright - 리그 오브 레전드 <br />
+                  빛에서 태어난 별수호자들. 그들이 함께 서있을 때 우주의 어둠을
+                  물리친다.
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td class="con_stitle">제작사</td>
+              <td class="con_stitle">협업</td>
+              <td class="con_stitle"></td>
+            </tr>
+            <tr>
+              <td class="con_det">라이엇 게임즈</td>
+              <td class="con_det">라이엇 게임즈 뮤직</td>
+              <td class="con_det"></td>
+            </tr>
+            <tr>
+              <td class="con_stitle">공개일</td>
+              <td class="con_stitle">음원</td>
+              <td class="con_stitle"></td>
+            </tr>
+            <tr>
+              <td class="con_det">2016년 10월 7일</td>
+              <td class="con_det">burning-bright</td>
+              <td class="con_det"></td>
+            </tr>
+            <tr>
+              <td class="con_stitle"></td>
+              <td class="con_stitle"></td>
+              <td class="con_stitle"></td>
+            </tr>
+            <tr>
+              <td class="con_det"></td>
+              <td class="con_det"></td>
+              <td class="con_det"></td>
+            </tr>
+          </table>
+          <div class="trailer">
+            <h3>트레일러 영상</h3>
+            <div class="vthumb">
+              <iframe
+                width="640"
+                height="360"
+                src="https://www.youtube.com/embed/oorajmbSJUM?si=WiC763acci6p_d5g"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+        <div class="top">▲ TOP</div>
+      </div>
+      <div id="footer" class="zoom">
+        <div class="ft_top" data-aos="zoom-in">
+          <div class="ft_top_left">
+            <div class="ft_logo">
+              <img src="img/lol.png" alt="롤로고" />
+            </div>
+            <div class="ft_top_left_txt">
+              <ul>
+                <li>
+                  <a href="#" onclick="return false">ABOUT 리그오브레전드</a>
+                </li>
+                <li><a href="#" onclick="return false">HELP/FAQS</a></li>
+                <li><a href="#" onclick="return false">CAREERS</a></li>
+                <li><a href="#" onclick="return false">INTERNSHIPS</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="ft_top_mid">
+            <div class="ft_img">
+              <div class="ft_img_img">
+                <a href="#" onclick="return false"
+                  ><img src="img/lol_a.png" alt="카드 이미지"
+                /></a>
+              </div>
+              <div class="ft_img_txt">
+                <h3>KID CARD</h3>
+                <p>Get Rewarded for Being a KID Fan</p>
+              </div>
+            </div>
+            <div class="ft_img">
+              <div class="ft_img_img">
+                <a href="#" onclick="return false"
+                  ><img src="img/lol_b.png" alt="카드 이미지"
+                /></a>
+              </div>
+              <div class="ft_img_txt">
+                <h3>RIOT CARD</h3>
+                <p>Get Rewarded for Being a RIOT</p>
+              </div>
+            </div>
+          </div>
+          <div class="ft_top_right">
+            <h3>FOLLOW RIOT GAMES</h3>
+            <a href="#" onclick="return false"
+              ><img src="img/fb.png" alt="sns아이콘"
+            /></a>
+            <a href="#" onclick="return false"
+              ><img src="img/twitter.png" alt="sns아이콘"
+            /></a>
+            <a href="#" onclick="return false"
+              ><img src="img/instagram.png" alt="sns아이콘"
+            /></a>
+          </div>
+        </div>
+        <div class="ft_bottom" data-aos="zoom-in">
+          <ul>
+            <li><a href="#" onclick="return false">Terms Of Use</a></li>
+            <li><a href="#" onclick="return false">Privacy Policy</a></li>
+            <li>
+              <a href="#" onclick="return false"
+                >Your California Privacy Rights</a
+              >
+            </li>
+            <li><a href="#" onclick="return false">Do Not Sell My Info</a></li>
+            <li>
+              <a href="#" onclick="return false"
+                >Children's Online Privacy Policy</a
+              >
+            </li>
+            <li><a href="#" onclick="return false">License Agreement</a></li>
+            <li><a href="#" onclick="return false">Interest-Based Ads</a></li>
+            <li>
+              <a href="#" onclick="return false">legue of legend Terms</a>
+            </li>
+          </ul>
+          <p>ⓒ2024 YUNJIN</p>
+        </div>
+      </div>
+    </div>
+    <script src="js/aos.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script>
+      $(".burger").on({
+        click: function () {
+          $("#sidemenu").slideToggle(300);
+        },
+      });
+      $(document).ready(function () {
+        AOS.init();
+      });
+      function fnMove(seq) {
+        var offset = $("#d" + seq).offset();
+        $("html, body").animate({ scrollTop: offset.top }, 200);
+      }
+      $(".top").click(function (e) {
+        e.preventDefault();
+        $("html, body").animate({ scrollTop: 0 }, 200);
+        /*setTimeout(function(){
+                location.reload();
+            },200);*/
+      });
+      $(".video").magnificPopup({
+        disableOn: 0,
+        type: "iframe",
+        mainClass: "mfp-fade",
+        removalDelay: 160,
+        preloader: false,
+        fixedContentPos: false,
+      });
+      $(".gallery12").magnificPopup({
+        delegate: "a",
+        type: "image",
+        tLoading: "Loading image #%curr%...",
+        mainClass: "mfp-img-mobile",
+        gallery: {
+          enabled: true,
+          navigateByImgClick: true,
+          preload: [0, 1], // Will preload 0 - before current, and 1 after the current image
+        },
+        image: {
+          tError: "The image #%curr% could not be loaded.",
+          titleSrc: function (item) {
+            return item.el.attr("title") + "";
+          },
+        },
+      });
+      $(".gallery11").magnificPopup({
+        delegate: "a",
+        type: "image",
+        tLoading: "Loading image #%curr%...",
+        mainClass: "mfp-img-mobile",
+        gallery: {
+          enabled: true,
+          navigateByImgClick: true,
+          preload: [0, 1], // Will preload 0 - before current, and 1 after the current image
+        },
+        image: {
+          tError: "The image #%curr% could not be loaded.",
+          titleSrc: function (item) {
+            return item.el.attr("title") + "";
+          },
+        },
+      });
+      $(".gallery10").magnificPopup({
+        delegate: "a",
+        type: "image",
+        tLoading: "Loading image #%curr%...",
+        mainClass: "mfp-img-mobile",
+        gallery: {
+          enabled: true,
+          navigateByImgClick: true,
+          preload: [0, 1], // Will preload 0 - before current, and 1 after the current image
+        },
+        image: {
+          tError: "The image #%curr% could not be loaded.",
+          titleSrc: function (item) {
+            return item.el.attr("title") + "";
+          },
+        },
+      });
+      $(".gallery9").magnificPopup({
+        delegate: "a",
+        type: "image",
+        tLoading: "Loading image #%curr%...",
+        mainClass: "mfp-img-mobile",
+        gallery: {
+          enabled: true,
+          navigateByImgClick: true,
+          preload: [0, 1], // Will preload 0 - before current, and 1 after the current image
+        },
+        image: {
+          tError: "The image #%curr% could not be loaded.",
+          titleSrc: function (item) {
+            return item.el.attr("title") + "";
+          },
+        },
+      });
+      $(".gallery8").magnificPopup({
+        delegate: "a",
+        type: "image",
+        tLoading: "Loading image #%curr%...",
+        mainClass: "mfp-img-mobile",
+        gallery: {
+          enabled: true,
+          navigateByImgClick: true,
+          preload: [0, 1], // Will preload 0 - before current, and 1 after the current image
+        },
+        image: {
+          tError: "The image #%curr% could not be loaded.",
+          titleSrc: function (item) {
+            return item.el.attr("title") + "";
+          },
+        },
+      });
+      $(".gallery7").magnificPopup({
+        delegate: "a",
+        type: "image",
+        tLoading: "Loading image #%curr%...",
+        mainClass: "mfp-img-mobile",
+        gallery: {
+          enabled: true,
+          navigateByImgClick: true,
+          preload: [0, 1], // Will preload 0 - before current, and 1 after the current image
+        },
+        image: {
+          tError: "The image #%curr% could not be loaded.",
+          titleSrc: function (item) {
+            return item.el.attr("title") + "";
+          },
+        },
+      });
+      $(".gallery6").magnificPopup({
+        delegate: "a",
+        type: "image",
+        tLoading: "Loading image #%curr%...",
+        mainClass: "mfp-img-mobile",
+        gallery: {
+          enabled: true,
+          navigateByImgClick: true,
+          preload: [0, 1], // Will preload 0 - before current, and 1 after the current image
+        },
+        image: {
+          tError: "The image #%curr% could not be loaded.",
+          titleSrc: function (item) {
+            return item.el.attr("title") + "";
+          },
+        },
+      });
+      $(".gallery5").magnificPopup({
+        delegate: "a",
+        type: "image",
+        tLoading: "Loading image #%curr%...",
+        mainClass: "mfp-img-mobile",
+        gallery: {
+          enabled: true,
+          navigateByImgClick: true,
+          preload: [0, 1], // Will preload 0 - before current, and 1 after the current image
+        },
+        image: {
+          tError: "The image #%curr% could not be loaded.",
+          titleSrc: function (item) {
+            return item.el.attr("title") + "";
+          },
+        },
+      });
+      $(".gallery4").magnificPopup({
+        delegate: "a",
+        type: "image",
+        tLoading: "Loading image #%curr%...",
+        mainClass: "mfp-img-mobile",
+        gallery: {
+          enabled: true,
+          navigateByImgClick: true,
+          preload: [0, 1], // Will preload 0 - before current, and 1 after the current image
+        },
+        image: {
+          tError: "The image #%curr% could not be loaded.",
+          titleSrc: function (item) {
+            return item.el.attr("title") + "";
+          },
+        },
+      });
+      $(".gallery3").magnificPopup({
+        delegate: "a",
+        type: "image",
+        tLoading: "Loading image #%curr%...",
+        mainClass: "mfp-img-mobile",
+        gallery: {
+          enabled: true,
+          navigateByImgClick: true,
+          preload: [0, 1], // Will preload 0 - before current, and 1 after the current image
+        },
+        image: {
+          tError: "The image #%curr% could not be loaded.",
+          titleSrc: function (item) {
+            return item.el.attr("title") + "";
+          },
+        },
+      });
+      $(".gallery2").magnificPopup({
+        delegate: "a",
+        type: "image",
+        tLoading: "Loading image #%curr%...",
+        mainClass: "mfp-img-mobile",
+        gallery: {
+          enabled: true,
+          navigateByImgClick: true,
+          preload: [0, 1], // Will preload 0 - before current, and 1 after the current image
+        },
+        image: {
+          tError: "The image #%curr% could not be loaded.",
+          titleSrc: function (item) {
+            return item.el.attr("title") + "";
+          },
+        },
+      });
+      $(".gallery12").magnificPopup({
+        delegate: "a",
+        type: "image",
+        tLoading: "Loading image #%curr%...",
+        mainClass: "mfp-img-mobile",
+        gallery: {
+          enabled: true,
+          navigateByImgClick: true,
+          preload: [0, 1], // Will preload 0 - before current, and 1 after the current image
+        },
+        image: {
+          tError: "The image #%curr% could not be loaded.",
+          titleSrc: function (item) {
+            return item.el.attr("title") + "";
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
